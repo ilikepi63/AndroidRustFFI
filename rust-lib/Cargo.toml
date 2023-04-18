@@ -1,0 +1,20 @@
+[package]
+name = "rust-lib"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = {version = "0.11.16",  default-features = false}
+tokio = {version = "1.27.0", features = ["full"]}
+log = "0.4.17"
+[target.'cfg(target_os="android")'.dependencies]
+jni = { version = "0.21.1", default-features = false, features = ["invocation"] }
+android_log = "0.1.3"
+
+
+
+[lib]
+name = "rust"
+crate-type = ["dylib"]
